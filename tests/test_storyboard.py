@@ -41,7 +41,7 @@ class StoryboardTests(unittest.TestCase):
             data["scenes"][0]["image"] = "images/photo.jpg"
             path = root / "story.json"
             path.write_text(json.dumps(data), encoding="utf-8-sig")
-            self.assertEqual(load(path)["scenes"][0]["image"], str(root / "images/photo.jpg"))
+            self.assertEqual(load(path)["scenes"][0]["image"], str((root / "images/photo.jpg").resolve()))
 
 
 if __name__ == "__main__":
